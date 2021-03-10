@@ -1,0 +1,10 @@
+<!-- Start Jinja template: footer.html -->
+
+<hr>
+Logged in as: {{user['firstname']}} {{user['lastname']}}
+&nbsp;&nbsp;
+<a href="{{ url_for('home') }}"> Home </a>
+&nbsp;&nbsp;
+<a href="{{ url_for('logout') }}"> Logout </a>
+<br>
+<!-- End Jinja template: footer.html -->

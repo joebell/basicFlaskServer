@@ -1,0 +1,19 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Base site</h1>
+        <p>Base Flask site with user authorization and MongoDB.</p>
+        <li><a href="{{ url_for('pagepublic') }}">Public page</a></li>
+        <li><a href="{{ url_for('pageauthonly') }}">Restricted page</a></li>
+        <li><a href="{{ url_for('pageadminonly') }}">Admin only page</a></li>
+        <br>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('roles') }}">Roles</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+        {{ render_footer()|safe }}
+    </body>
+</html>
+

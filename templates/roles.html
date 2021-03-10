@@ -1,0 +1,59 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Base site.</h1>
+        <p>
+        Page for viewing and adjusting participant roles.
+        </p>
+        <table>
+            <tr>
+                <th>Username: </th>
+                <th>Roles: </th>
+            <tr>
+                {% for user in roledata %}
+                    <tr>
+                        <td>
+                        {{ user[0] }}
+                        </td>
+                        <td>
+                        {{ user[1] }}
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>
+
+        {% from "_formhelpers.html" import render_field %}
+        <div id='loginformdiv'>
+            <form action="{{ url_for('roles') }}" method="POST">
+                <dl>
+                {{ render_field(form.username) }}
+                {{ render_field(form.addrole) }}
+                {{ render_field(form.remrole) }}
+                </dl>
+
+                {{ form.csrf_token }}
+                <button type="submit">Add/Remove</button>
+            </form>
+        </div>
+
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+
+        <ul>
+        </ul>
+        {{ render_footer()|safe }}
+    </body>
+</html>
+
